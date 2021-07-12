@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         set => _wireEndInputTerminal = value;
     }
 
+    public GameObject levelController;
     public GameObject AndGatePrefab;
     public GameObject OrGatePrefab;
     public GameObject NotGatePrefab;
@@ -56,12 +57,19 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        LevelControl levelController = this.levelController.GetComponent<LevelControl>();
+        levelController.CreateLevel(0);
     }
 
     // Update is called once per frame
     private void Update()
     {
         DrawWire();
+        Debug.Log($"{Input.mousePosition.x}, {Input.mousePosition.y}");
+    }
+    public void OnContinueButton()
+    {
+        Debug.Log("ContinuePressed");
     }
 
     public void SpawnGate(GateType type)
