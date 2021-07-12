@@ -3,39 +3,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum IOTypes
-{
-    StartOn,
-    StartOff,
-    FinishOn,
-    FinishOff
-}
 public class LevelControl : MonoBehaviour
 {
     private Vector3 mOffset;
     private float mZCoord;
     public GameObject[] Starts;
     public GameObject[] Finish;
-    
+    private const int MAXLEVELS = 10;
 
-    /*public void CreateLevel(int level)
-       {
-                 GameObject gObj = null;
-                 CalcOffset();
-                 var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-  
-                 mouseWorldPos.z = 0;
-                 mouseWorldPos.x += 100;
-  
-                 foreach (IOTypes io in Levels[level])
-                 {
-                     if (io == IOTypes.StartOn)
-                     {
-                         gObj = Instantiate(AndGatePrefab, mouseWorldPos, Quaternion.identity);
-                     }
-                 }
+    public void CreateLevel(int level)
+    {
+        int startX = 85;
+        GameObject gObj = null;
+        CalcOffset();
+        int i = 0;
+        int startSpacing = 450 / MAXLEVELS;
+        int startOffset = 275 - Starts.Length * startSpacing;
+
+
+        foreach (GameObject prefab in Starts)
+        {
+            i++;
+            
+            
+            var targetWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(startX, startOffset + i*startSpacing, 0));
+            targetWorldPos.z = 0;
+            gObj = Instantiate(prefab, targetWorldPos, Quaternion.identity);
+        }
         
-       }*/
+         i = 0;
+         int finishX = 1070;
+        int finishSpacing = 450 / MAXLEVELS;
+        int finishOffset = 285 - Finish.Length * finishSpacing;
+        foreach (GameObject prefab in Finish)
+        {
+            i++;
+            
+            
+            var targetWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(finishX, finishOffset + i*finishSpacing, 0));
+            targetWorldPos.z = 0;
+            gObj = Instantiate(prefab, targetWorldPos, Quaternion.identity);
+        }
+        
+    }
+
     public void CalcOffset()
     {
         mZCoord = Camera.main.WorldToScreenPoint(GetComponent<Transform>().position).z;
@@ -50,5 +61,4 @@ public class LevelControl : MonoBehaviour
     }
 
 
-     
 }
