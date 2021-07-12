@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FinishOutput : Gate
 {
-    private Vector3 mOffset;
-    private float mZCoord;
+    /*private Vector3 mOffset;
+    private float mZCoord;*/
     
     // Start is called before the first frame update
     void Start()
@@ -19,16 +19,16 @@ public class FinishOutput : Gate
         Calculate();
     }
 
-    public void OnMouseDown()  // only works on left button click
+    /*public void OnMouseDown()  // only works on left button click
     {
 
         mZCoord = Camera.main.WorldToScreenPoint(GetComponent<Transform>().position).z;
         mOffset = GetComponent<Transform>().position - GetMouseWorldPos();
-    }
+    }*/
 
 
 
-    private Vector3 GetMouseWorldPos()
+    /*private Vector3 GetMouseWorldPos()
     {
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = mZCoord;
@@ -38,7 +38,7 @@ public class FinishOutput : Gate
     private void OnMouseDrag()
     {
         transform.position = GetMouseWorldPos() + mOffset;
-    }
+    }*/
     protected override void LightUpNodes()
     {
     }
