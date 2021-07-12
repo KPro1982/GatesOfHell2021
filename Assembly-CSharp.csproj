@@ -69,7 +69,7 @@
      <Compile Include="Assets\Scripts\TMP\Benchmark04.cs" />
      <Compile Include="Assets\Scripts\FinishOutput.cs" />
      <Compile Include="Assets\Scripts\TMP\TMP_FrameRateCounter.cs" />
-     <Compile Include="Assets\LevelControl.cs" />
+     <Compile Include="Assets\Scripts\LevelControl.cs" />
      <Compile Include="Assets\Scripts\TMP\ChatController.cs" />
      <Compile Include="Assets\Scripts\TMP\VertexJitter.cs" />
      <Compile Include="Assets\Scripts\TMP\TextMeshProFloatingText.cs" />
@@ -93,6 +93,7 @@
      <Compile Include="Assets\Scripts\TMP\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\Scripts\TMP\Benchmark01.cs" />
      <Compile Include="Assets\Scripts\TMP\TMP_TextEventCheck.cs" />
+     <Compile Include="Assets\Scripts\PlayButton.cs" />
      <None Include="Assets\Shaders\TMPro.cginc" />
      <None Include="Assets\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Shaders\TMP_Bitmap.shader" />
